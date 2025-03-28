@@ -1,0 +1,18 @@
+id: copyright
+info: 
+  name: copyright
+  author: DragonGM
+  severity: info
+  description: checks for the presence the © symbol in the page and if present, attempts to extract the year
+  tags: detect
+http:
+  - method: GET
+    path: 
+      - "{{BaseURL}}"
+    extractors:
+      - type: regex
+        part: body
+        group: 1
+        regex: 
+          - "© ([0-9]{4})"
+      

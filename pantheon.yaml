@@ -1,0 +1,18 @@
+id: pantheon
+info: 
+  name: pantheon
+  author: DragonGM
+  severity: info
+  description: checks for the presence of the x-pantheon-styx-hostname header 
+  reference: https://docs.pantheon.io/guides/global-cdn/test-global-cdn-caching
+  tags: tech, detect
+http:
+  - method: GET
+    path: 
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        name: has x-pantheon-styx-hostname
+        words: 
+          - "X-Pantheon-Styx-Hostname"
+        part: header

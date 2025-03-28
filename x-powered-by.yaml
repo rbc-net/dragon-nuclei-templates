@@ -1,0 +1,17 @@
+id: x-powered-by
+info: 
+  name: x-powered-by
+  author: DragonGM
+  severity: info
+  description: checks for the presence of the x-powered-by header and displays its content if present
+  reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Powered-By
+  tags: tech, detect
+http:
+  - method: GET
+    path: 
+      - "{{BaseURL}}"
+    extractors:
+      - type: kval
+        kval:
+          - x_powered_by
+      

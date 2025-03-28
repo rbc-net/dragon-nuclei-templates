@@ -1,0 +1,23 @@
+id: x-generator
+info: 
+  name: x-generator
+  author: DragonGM
+  severity: info
+  description: checks for the presence of the Drupal x-generator header and displays its content if present
+  reference: https://webtechsurvey.com/response-header/x-generator
+  tags: tech, detect
+http:
+  - method: GET
+    path: 
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        name: x-generator
+        words: 
+          - "X-Generator:"
+        part: header
+    extractors:
+      - type: kval
+        kval:
+          - x_generator
+      
